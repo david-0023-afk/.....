@@ -5,10 +5,11 @@
 <title>Pra você 💜</title>
 
 <style>
+
 body {
     margin: 0;
     overflow: hidden;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background: linear-gradient(180deg, #d9a7ff, #b57edc);
     text-align: center;
     color: white;
@@ -16,28 +17,52 @@ body {
 
 .caixa {
     position: relative;
-    top: 20%;
+    top: 10%;
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
 }
 
 button {
+    margin-top: 20px;
     padding: 15px;
     font-size: 18px;
     background: #ff4da6;
     color: white;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff1a8c;
 }
 
 .heart {
     position: absolute;
     color: pink;
-    animation: cair 5s linear infinite;
+    animation: cair 6s linear infinite;
 }
 
 @keyframes cair {
-    0% { transform: translateY(-10%); }
-    100% { transform: translateY(110vh); }
+    0% {
+        transform: translateY(-10%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
 }
+
 </style>
 </head>
 
@@ -45,19 +70,35 @@ button {
 
 <div class="caixa">
 
-<h1>Oi…</h1>
+<h1>Oi… eu preciso te falar isso</h1>
 
 <p>
-Queria te pedir desculpa pelo que aconteceu.<br>
-Eu não te ignorei de propósito.<br><br>
+Queria te pedir desculpa pelo que aconteceu ontem à noite.<br><br>
 
-Você é muito importante pra mim.<br>
-Nossa relação significa muito.<br><br>
+Eu sei que pareceu que eu te ignorei, mas não foi minha intenção,
+de verdade. Eu chamei você pra call justamente porque eu gosto
+de falar com você, gosto da sua companhia e me sinto bem quando estamos juntos.<br><br>
 
-Clica no botão 💜
+Fiquei mal quando percebi que você achou que eu estava te ignorando,
+porque a última coisa que eu quero é te magoar.<br><br>
+
+Você é uma pessoa muito importante pra mim,
+mais do que só uma amiga.<br><br>
+
+Eu gosto do jeito que a gente conversa,
+do jeito que a gente ri,
+do jeito que a gente se entende,
+e eu não quero que um mal entendido estrague isso.<br><br>
+
+Nossa relação é algo que eu valorizo muito,
+e eu realmente gosto de você.<br><br>
+
+Se você puder, clica no botão aqui embaixo…
 </p>
 
-<button onclick="mostrar()">Clique aqui</button>
+<button onclick="mostrar()">
+Clique aqui 💜
+</button>
 
 <h2 id="msg"></h2>
 
@@ -66,24 +107,28 @@ Clica no botão 💜
 <script>
 
 function mostrar() {
-document.getElementById("msg").innerHTML =
-"Eu amo você 💜";
+    document.getElementById("msg").innerHTML =
+    "Eu amo você 💜 e quero que a gente fique bem.";
 }
 
 function criarCoracao() {
-const h = document.createElement("div");
-h.className = "heart";
-h.innerHTML = "💜";
 
-h.style.left = Math.random()*100+"vw";
-h.style.fontSize = (10+Math.random()*30)+"px";
+    const heart = document.createElement("div");
 
-document.body.appendChild(h);
+    heart.className = "heart";
+    heart.innerHTML = "💜";
 
-setTimeout(()=>{h.remove()},5000);
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (10 + Math.random() * 30) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
 }
 
-setInterval(criarCoracao,300);
+setInterval(criarCoracao, 250);
 
 </script>
 
