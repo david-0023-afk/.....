@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pra você 💜</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial;
+    background: linear-gradient(180deg, #d9a7ff, #b57edc);
+    text-align: center;
+    color: white;
+}
+
+.caixa {
+    position: relative;
+    top: 20%;
+}
+
+button {
+    padding: 15px;
+    font-size: 18px;
+    background: #ff4da6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.heart {
+    position: absolute;
+    color: pink;
+    animation: cair 5s linear infinite;
+}
+
+@keyframes cair {
+    0% { transform: translateY(-10%); }
+    100% { transform: translateY(110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="caixa">
+
+<h1>Oi…</h1>
+
+<p>
+Queria te pedir desculpa pelo que aconteceu.<br>
+Eu não te ignorei de propósito.<br><br>
+
+Você é muito importante pra mim.<br>
+Nossa relação significa muito.<br><br>
+
+Clica no botão 💜
+</p>
+
+<button onclick="mostrar()">Clique aqui</button>
+
+<h2 id="msg"></h2>
+
+</div>
+
+<script>
+
+function mostrar() {
+document.getElementById("msg").innerHTML =
+"Eu amo você 💜";
+}
+
+function criarCoracao() {
+const h = document.createElement("div");
+h.className = "heart";
+h.innerHTML = "💜";
+
+h.style.left = Math.random()*100+"vw";
+h.style.fontSize = (10+Math.random()*30)+"px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{h.remove()},5000);
+}
+
+setInterval(criarCoracao,300);
+
+</script>
+
+</body>
+</html>
